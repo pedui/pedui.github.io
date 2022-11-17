@@ -256,7 +256,84 @@ nav { display: none; }
     .about-me__image {
         grid-area: img;
         position: relative;
-        z-index: 2;
+        z-index: 2; /* Keeps the image always on top with the relative positioning (when changing window size) */
     }
 }
 
+/* My Work section */
+
+.my-work {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.portfolio__item {
+    background: var(--clr-accent);
+    overflow: hidden;
+}
+
+.portfolio_img {
+    transition:
+            transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
+            opacity 250ms linear;
+}
+
+.portfolio__item:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio_img:hover,
+.portfolio__item:focus .portfolio_img {
+    transform: scale(1.2);
+    opacity: 0.5;
+}
+
+/* The footer section */
+
+.footer {
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer a { color: inherit }
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer-link:hover,
+.social-list__link:hover {
+    opacity: 0.7;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0.5em;
+}
