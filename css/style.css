@@ -15,7 +15,7 @@
 
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #aac6ff;/*#16e0bd;*/
+    --clr-accent: #89b1ff;/*#16e0bd;*/
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -32,6 +32,7 @@
         --fs-h2: 3.75rem;
         --fs-h3: 1.5rem;
         --fs-body: 1.125rem;
+        --fs-small: 1rem;
     }
 }
 
@@ -89,11 +90,13 @@ strong { font-weight: var(--fw-bold); }
     transform: scale(1.1);
 }
 
+
 /* Typography */
 
 h1,
 h2,
-h3 {
+h3,
+small {
     line-height: 1;
     margin: 0;
 }
@@ -101,6 +104,13 @@ h3 {
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
+
+small {
+    display: block;
+    text-align: center;
+    font-size: var(--fs-small);
+    color: var(--clr-accent);;
+}
 
 .section__title {
     margin-bottom: 0.25em;
@@ -135,7 +145,7 @@ header {
 }
 
 .logo {
-    nav-width: 100px;
+    width: 100px;
 }
 
 .nav {
@@ -149,7 +159,7 @@ header {
     z-index: 100;
 
     transform: translateX(100%);
-    transition: transform 250ms cubic-bezier(.5,0,.5,1);
+    transition: transform 250ms cubic-bezier(0.5,0,0.5,1);
 }
 
 .nav__list {
@@ -175,13 +185,14 @@ header {
 }
 
 .nav-toggle {
-    padding: .25em;
+    padding: 0.5em;
     background: transparent;
     border: 0;
     cursor: pointer;
     position: absolute;
     right: 1em;
     top: 1em;
+    outline: none;
     z-index: 1000;
 }
 
@@ -194,11 +205,11 @@ header {
 }
 
 .nav-open .hamburger {
-    transform: rotate(.625turn);
+    transform: rotate(0.625turn);
 }
 
 .nav-open .hamburger::before {
-    transform: rotate(90deg) translateX(6px);
+    transform: rotate(90deg) translateX(-6px);
 }
 
 .nav-open .hamburger::after {
@@ -210,8 +221,9 @@ header {
 .hamburger {
     background: var(--clr-dark);
     width: 2em;
-    height: 2px;
+    height: 3px;
     border-radius: 1em;
+    text-align: center;
     display: block;
     position: relative;
 }
@@ -219,9 +231,9 @@ header {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--clr-dark);
+    background: var(--clr-accent);
     width: 2em;
-    height: 2px;
+    height: 3px;
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
 }
@@ -448,4 +460,18 @@ header {
 
 .social-list__item {
     margin: 0.5em;
+}
+
+/* Individual portfolio item styles */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
